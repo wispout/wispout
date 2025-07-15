@@ -21,7 +21,6 @@
             background-clip: text;
             color: transparent;
             margin-bottom: 0.5rem;
-            animation: pulse 3s infinite alternate;
         }
         
         .error-message {
@@ -36,99 +35,51 @@
         
         .home-link {
             display: inline-block;
-            padding: 12px 30px;
+            padding: 12px 24px;
             background: rgba(110, 69, 226, 0.2);
             color: #b0b0ff;
             border: 1px solid #6e45e2;
-            border-radius: 30px;
+            border-radius: 4px;
             text-decoration: none;
             font-weight: 600;
-            letter-spacing: 1px;
             transition: all 0.3s ease;
             margin-top: 1rem;
         }
         
         .home-link:hover {
             background: rgba(110, 69, 226, 0.4);
-            color: #fff;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(110, 69, 226, 0.3);
+            box-shadow: 0 5px 15px rgba(110, 69, 226, 0.2);
         }
         
-        @keyframes pulse {
-            0% {
-                opacity: 0.8;
-                text-shadow: 0 0 20px rgba(110, 69, 226, 0.3);
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 6rem;
             }
-            100% {
-                opacity: 1;
-                text-shadow: 0 0 40px rgba(110, 69, 226, 0.6);
+            .error-message {
+                font-size: 1.3rem;
+                padding: 0 20px;
             }
         }
         
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-        
-        .star {
-            position: absolute;
-            background-color: #fff;
-            border-radius: 50%;
-            animation: twinkle var(--duration) infinite ease-in-out;
-        }
-        
-        @keyframes twinkle {
-            0%, 100% {
-                opacity: 0.2;
+        @media (max-width: 480px) {
+            .error-code {
+                font-size: 4.5rem;
             }
-            50% {
-                opacity: 1;
+            .error-message {
+                font-size: 1.1rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="stars" id="stars"></div>
     <div class="container">
         <div class="content">
-            <div class="badge">ERROR 404</div>
-            <h1 class="error-code">4 0 4</h1>
-            <p class="error-message">The page you're looking for has vanished into the cosmic void...</p>
-            <a href="/" class="home-link">Return to Safety</a>
+            <div class="badge">ERROR</div>
+            <h1 class="error-code">404</h1>
+            <p class="error-message">The page you're seeking has vanished into the void.</p>
+            <a href="/" class="home-link">Return to the light</a>
         </div>
     </div>
-
-    <script>
-        // Create twinkling stars
-        document.addEventListener('DOMContentLoaded', function() {
-            const starsContainer = document.getElementById('stars');
-            const starCount = 100;
-            
-            for (let i = 0; i < starCount; i++) {
-                const star = document.createElement('div');
-                star.classList.add('star');
-                
-                // Random size between 1 and 3px
-                const size = Math.random() * 2 + 1;
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-                
-                // Random position
-                star.style.left = `${Math.random() * 100}%`;
-                star.style.top = `${Math.random() * 100}%`;
-                
-                // Random animation duration
-                star.style.setProperty('--duration', `${Math.random() * 3 + 2}s`);
-                
-                starsContainer.appendChild(star);
-            }
-        });
-    </script>
 </body>
 </html>
